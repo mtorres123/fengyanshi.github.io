@@ -1,23 +1,33 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Hot Start &#8212; FUNWAVE Documentation</title>
     <link rel="stylesheet" href="_static/lglb-sphinx-doc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Post Processing" href="post.html" />
     <link rel="prev" title="Bathymetry Correction" href="bathymetry_correction.html" /> 
-  </head><body>
+  </head>
+  <body>
 <div class="header">
  <p class="logo"><a href="https://fengyanshi.github.io/build/html/index.html">
   <img class="logo" src="_static/../../../images/Funwave.svg" alt="Logo"/>
@@ -43,7 +53,7 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="index.html">Table of Contents</a></h3>
+<h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="basics.html"><strong>BASICS</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="flowchart.html"><strong>ARCHITECTURE</strong></a></li>
@@ -63,13 +73,13 @@
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -84,11 +94,11 @@
 <span id="section-hotstart"></span><h1>Hot Start<a class="headerlink" href="#hot-start" title="Permalink to this headline">¶</a></h1>
 <p><strong>HOT START OR INITIAL CONDITION</strong></p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">INT_UVZ</span></code>: logical parameter for initial condition, default is FALSE</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">ETA_FILE</span></code>: name of file for initial <span class="math notranslate nohighlight">\(\eta\)</span>, e.g., <code class="code docutils literal notranslate"><span class="pre">ETA_FILE</span> <span class="pre">=</span> <span class="pre">/Users/results/eta_00100</span></code>, data could be the last results from a previous run. Data format is the same as the output/depth files.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">U_FILE</span></code>:  name of file for initial u, e.g., <code class="code docutils literal notranslate"><span class="pre">U_FILE</span> <span class="pre">=</span> <span class="pre">/Users/results/u_00100</span></code>. If no <code class="code docutils literal notranslate"><span class="pre">U_FILE</span></code> specified, use zeros.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">V_FILE</span></code>:  name of file for initial v, e.g., <code class="code docutils literal notranslate"><span class="pre">V_FILE</span> <span class="pre">=</span> <span class="pre">/Users/results/v_00100</span></code>. If no <code class="code docutils literal notranslate"><span class="pre">V_FILE</span></code> specified, use zeros.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">MASK_FILE</span></code>:  name of file for initial MASK, e.g., <code class="code docutils literal notranslate"><span class="pre">MASK_FILE</span> <span class="pre">=</span> <span class="pre">/Users/results/mask_00100</span></code>. A <code class="code docutils literal notranslate"><span class="pre">MASK_FILE</span></code> could be from a model output and the format is REAL numbers. If there is no <code class="code docutils literal notranslate"><span class="pre">MASK_FILE</span></code>, MASK values will be re-specified according to ETA and DEPTH.</p></li>
+<li><code class="code docutils literal"><span class="pre">INT_UVZ</span></code>: logical parameter for initial condition, default is FALSE</li>
+<li><code class="code docutils literal"><span class="pre">ETA_FILE</span></code>: name of file for initial <span class="math">\(\eta\)</span>, e.g., <code class="code docutils literal"><span class="pre">ETA_FILE</span> <span class="pre">=</span> <span class="pre">/Users/results/eta_00100</span></code>, data could be the last results from a previous run. Data format is the same as the output/depth files.</li>
+<li><code class="code docutils literal"><span class="pre">U_FILE</span></code>:  name of file for initial u, e.g., <code class="code docutils literal"><span class="pre">U_FILE</span> <span class="pre">=</span> <span class="pre">/Users/results/u_00100</span></code>. If no <code class="code docutils literal"><span class="pre">U_FILE</span></code> specified, use zeros.</li>
+<li><code class="code docutils literal"><span class="pre">V_FILE</span></code>:  name of file for initial v, e.g., <code class="code docutils literal"><span class="pre">V_FILE</span> <span class="pre">=</span> <span class="pre">/Users/results/v_00100</span></code>. If no <code class="code docutils literal"><span class="pre">V_FILE</span></code> specified, use zeros.</li>
+<li><code class="code docutils literal"><span class="pre">MASK_FILE</span></code>:  name of file for initial MASK, e.g., <code class="code docutils literal"><span class="pre">MASK_FILE</span> <span class="pre">=</span> <span class="pre">/Users/results/mask_00100</span></code>. A <code class="code docutils literal"><span class="pre">MASK_FILE</span></code> could be from a model output and the format is REAL numbers. If there is no <code class="code docutils literal"><span class="pre">MASK_FILE</span></code>, MASK values will be re-specified according to ETA and DEPTH.</li>
 </ul>
 </div>
 
@@ -117,7 +127,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Fengyan Shi.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

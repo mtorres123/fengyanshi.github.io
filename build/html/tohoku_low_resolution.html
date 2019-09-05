@@ -1,23 +1,33 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Tohoku Low Resolution &#8212; FUNWAVE Documentation</title>
     <link rel="stylesheet" href="_static/lglb-sphinx-doc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ship-wakes" href="vessel.html" />
     <link rel="prev" title="Basics for model setup" href="tohoku_info.html" /> 
-  </head><body>
+  </head>
+  <body>
 <div class="header">
  <p class="logo"><a href="https://fengyanshi.github.io/build/html/index.html">
   <img class="logo" src="_static/../../../images/Funwave.svg" alt="Logo"/>
@@ -43,7 +53,7 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="index.html">Table of Contents</a></h3>
+<h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="basics.html"><strong>BASICS</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="flowchart.html"><strong>ARCHITECTURE</strong></a></li>
@@ -64,13 +74,13 @@
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -89,7 +99,7 @@
 <p>Here you will add the initial conditions to describe the Tohoku tsunami. The tsunami source is constructed in Grilli et al. (2012), which is based on the 3D FEM model of Masterlark (2003), denoted UA source. The non-hydrostatic model NHWAVE (Ma et al., 2012) is used to simulate the first 5 min of tsunami generation, as in Grilli et al. (2012), using a smaller and finer local 1 km resolution Cartesian grid, based on the UA source. The NHWAVE results of u, v eta are used as the initial conditions for FUNWAVE-TVD.</p>
 <blockquote>
 <div><p>Set the initial deformation in UVZ:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----INITIAL UVZ-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----INITIAL UVZ-----
  INI_UVZ = T
 
  ! if true, input eta, u, v files names
@@ -99,7 +109,7 @@
 </pre></div>
 </div>
 <p>Set the sponge layer width to 100,000 m on all boundaries, the shock-capturing breaking ratio to 0.6, and the bottom friction coefficient to 0.001:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----SPONGE LAYER-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----SPONGE LAYER-----
  DIRECT_SPONGE = T
  FRICTION_SPONGE = T
  Sponge_west_width =  100000.0    ! in meters
@@ -113,19 +123,19 @@
 </div>
 <p>Refer to <a class="reference internal" href="physics.html#section-physics"><span class="std std-ref">Physics (dispersion, breaking, friction)</span></a> and <a class="reference internal" href="sponge.html#sponge-definition"><span class="std std-ref">Sponge Layer</span></a> for parameter definitions.</p>
 <p>Set the CLF condition to 0.5 and maximum Froude number to 2.0:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----NUMERICS-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----NUMERICS-----
  CFL = 0.5
  FroudeCap = 2.0
 </pre></div>
 </div>
 <p>Set the minimum depth of wetting-drying to 10.0, and the minimum depth for friction to 10.0:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----WET-DRY-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----WET-DRY-----
  MinDepth = 10.0
  MinDepthFrc = 10.0
 </pre></div>
 </div>
 <p>Add a station file to write the output:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----OUTPUT-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----OUTPUT-----
  NumberStations = 78
  STATIONS_FILE = stations-pacific.txt
  ETA = T
@@ -160,7 +170,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Fengyan Shi.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

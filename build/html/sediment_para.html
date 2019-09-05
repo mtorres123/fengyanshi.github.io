@@ -1,23 +1,33 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Sediment Transport and Morphological Change &#8212; FUNWAVE Documentation</title>
     <link rel="stylesheet" href="_static/lglb-sphinx-doc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Wind and Pressure Field" href="meteo_tsu.html" />
     <link rel="prev" title="Shipwakes Setup" href="shipwakes_para.html" /> 
-  </head><body>
+  </head>
+  <body>
 <div class="header">
  <p class="logo"><a href="https://fengyanshi.github.io/build/html/index.html">
   <img class="logo" src="_static/../../../images/Funwave.svg" alt="Logo"/>
@@ -42,7 +52,7 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="index.html">Table of Contents</a></h3>
+<h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="basics.html"><strong>BASICS</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="flowchart.html"><strong>ARCHITECTURE</strong></a></li>
@@ -62,13 +72,13 @@
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -87,49 +97,49 @@
 </div></blockquote>
 <p><strong>NUMERICAL SCHEME</strong></p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">Sed_Scheme</span></code>: numerical scheme for solving the advection-diffusion equation</p></li>
+<li><code class="code docutils literal"><span class="pre">Sed_Scheme</span></code>: numerical scheme for solving the advection-diffusion equation</li>
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">Sed_Scheme</span> <span class="pre">=</span> <span class="pre">TVD</span></code>: TVD scheme</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Sed_Scheme</span> <span class="pre">=</span> <span class="pre">Upwinding</span></code>: Upwinding scheme (default)</p></li>
+<li><code class="code docutils literal"><span class="pre">Sed_Scheme</span> <span class="pre">=</span> <span class="pre">TVD</span></code>: TVD scheme</li>
+<li><code class="code docutils literal"><span class="pre">Sed_Scheme</span> <span class="pre">=</span> <span class="pre">Upwinding</span></code>: Upwinding scheme (default)</li>
 </ul>
 </div></blockquote>
 <p><strong>SEDIMENT PARAMETERS</strong></p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">D50</span></code>: median grain diameter <span class="math notranslate nohighlight">\(D_{50}\)</span>, defalt <span class="math notranslate nohighlight">\(D_{50} = 0.5mm\)</span></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Sdensity</span></code>: gravity of sediment <span class="math notranslate nohighlight">\(s\)</span>, defalt <span class="math notranslate nohighlight">\(s = 2.68\)</span></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">n_porosity</span></code>: porosity of sediment <span class="math notranslate nohighlight">\(n\)</span>, defalt <span class="math notranslate nohighlight">\(n=0.47\)</span></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">WS</span></code>: settling velocity <span class="math notranslate nohighlight">\(w_f\)</span>, defalt <span class="math notranslate nohighlight">\(w_f = 0.125\)</span> m/s</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Shields_cr</span></code>: critical Shields parameter for suspended load <span class="math notranslate nohighlight">\(\theta_{cr}\)</span>, defalt <span class="math notranslate nohighlight">\(\theta_{cr} = 0.05\)</span></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Shields_cr_bedload</span></code>: Shields parameter for bedload <span class="math notranslate nohighlight">\(\theta_{cr}^{b}\)</span>, defalt <span class="math notranslate nohighlight">\(\theta_{cr}^{b} = 0.047\)</span> based on Meyer-Peter and Muller (1984)</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Kappa1</span></code>: Runge-Kutta parameter <span class="math notranslate nohighlight">\(\kappa_1\)</span>, defalt <span class="math notranslate nohighlight">\(\kappa_1 = 0.3333\)</span>, 4th-order</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Kappa2</span></code>: Runge-Kutta parameter <span class="math notranslate nohighlight">\(\kappa_2\)</span>, defalt <span class="math notranslate nohighlight">\(\kappa_1 = 1.0\)</span>, 4th-order</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">MinDepthPickup</span></code>: the minimum depth for sediment pickup action. The purpose of this parameter is to avoid over-shooting at a very small depth. Default: <code class="code docutils literal notranslate"><span class="pre">MinDepthPickup</span> <span class="pre">=</span> <span class="pre">0.1m</span></code>.</p></li>
+<li><code class="code docutils literal"><span class="pre">D50</span></code>: median grain diameter <span class="math">\(D_{50}\)</span>, defalt <span class="math">\(D_{50} = 0.5mm\)</span></li>
+<li><code class="code docutils literal"><span class="pre">Sdensity</span></code>: gravity of sediment <span class="math">\(s\)</span>, defalt <span class="math">\(s = 2.68\)</span></li>
+<li><code class="code docutils literal"><span class="pre">n_porosity</span></code>: porosity of sediment <span class="math">\(n\)</span>, defalt <span class="math">\(n=0.47\)</span></li>
+<li><code class="code docutils literal"><span class="pre">WS</span></code>: settling velocity <span class="math">\(w_f\)</span>, defalt <span class="math">\(w_f = 0.125\)</span> m/s</li>
+<li><code class="code docutils literal"><span class="pre">Shields_cr</span></code>: critical Shields parameter for suspended load <span class="math">\(\theta_{cr}\)</span>, defalt <span class="math">\(\theta_{cr} = 0.05\)</span></li>
+<li><code class="code docutils literal"><span class="pre">Shields_cr_bedload</span></code>: Shields parameter for bedload <span class="math">\(\theta_{cr}^{b}\)</span>, defalt <span class="math">\(\theta_{cr}^{b} = 0.047\)</span> based on Meyer-Peter and Muller (1984)</li>
+<li><code class="code docutils literal"><span class="pre">Kappa1</span></code>: Runge-Kutta parameter <span class="math">\(\kappa_1\)</span>, defalt <span class="math">\(\kappa_1 = 0.3333\)</span>, 4th-order</li>
+<li><code class="code docutils literal"><span class="pre">Kappa2</span></code>: Runge-Kutta parameter <span class="math">\(\kappa_2\)</span>, defalt <span class="math">\(\kappa_1 = 1.0\)</span>, 4th-order</li>
+<li><code class="code docutils literal"><span class="pre">MinDepthPickup</span></code>: the minimum depth for sediment pickup action. The purpose of this parameter is to avoid over-shooting at a very small depth. Default: <code class="code docutils literal"><span class="pre">MinDepthPickup</span> <span class="pre">=</span> <span class="pre">0.1m</span></code>.</li>
 </ul>
 <p><strong>MORPHOLOGICAL CHANGE</strong></p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">Bed_Change</span></code>: logical parameter,  T: update depth, F: no bed change.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Hard_bottom</span></code>: logical parameter,  T: hard bed, no erosion allowed, F: sediment bed</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Hard_bottom_file</span></code>: the file contains the distribution of hard bed points (0:hard bed, 1: sediment bed). The format is the same as the depth file</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Morph_step</span></code>: ratio of Boussinesq model time step to the morphological updating step, <span class="math notranslate nohighlight">\(dt_{morph}\)</span>, defalt: <span class="math notranslate nohighlight">\(dt_{morph}\)</span> = 25</p></li>
+<li><code class="code docutils literal"><span class="pre">Bed_Change</span></code>: logical parameter,  T: update depth, F: no bed change.</li>
+<li><code class="code docutils literal"><span class="pre">Hard_bottom</span></code>: logical parameter,  T: hard bed, no erosion allowed, F: sediment bed</li>
+<li><code class="code docutils literal"><span class="pre">Hard_bottom_file</span></code>: the file contains the distribution of hard bed points (0:hard bed, 1: sediment bed). The format is the same as the depth file</li>
+<li><code class="code docutils literal"><span class="pre">Morph_step</span></code>: ratio of Boussinesq model time step to the morphological updating step, <span class="math">\(dt_{morph}\)</span>, defalt: <span class="math">\(dt_{morph}\)</span> = 25</li>
 </ul>
 <p><strong>AVALANCHE</strong></p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">Avalanche</span></code>: logical parameter,  T: consider avalanche, F: not consider avalanche</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Tan_phi</span></code>: tangent of the repose angle <span class="math notranslate nohighlight">\(\tan \phi\)</span>, defalt <span class="math notranslate nohighlight">\(\tan \phi = 0.7\)</span>, or 35 deg</p></li>
+<li><code class="code docutils literal"><span class="pre">Avalanche</span></code>: logical parameter,  T: consider avalanche, F: not consider avalanche</li>
+<li><code class="code docutils literal"><span class="pre">Tan_phi</span></code>: tangent of the repose angle <span class="math">\(\tan \phi\)</span>, defalt <span class="math">\(\tan \phi = 0.7\)</span>, or 35 deg</li>
 </ul>
 <p><strong>OUTPUT</strong></p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">PLOT_INTV_SEDIMENT</span></code>: time interval for plotting sediment transport variables, defalt is the same as the Boussinesq model</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">C_xxxxx</span></code>: Sediment concentration (g/l) at xxxxx output step</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Pick_xxxxx</span></code>: sediment pickup value at xxxxx output step</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Depo_xxxxx</span></code>: sediment deposition value at xxxxx output step</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">DchgS_xxxxx</span></code>: depth change (without considering porosity ) due to suspended load UPTO xxxxx output step</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">DchgB_xxxxx</span></code>: depth change (without considering porosity ) due to  bedload UPTO xxxxx output step</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">BedFx_xxxxx</span></code>: bedload flux in x</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">BedFy_xxxxx</span></code>: bedload flux in y</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">dep_xxxxx</span></code>: depth (with considering porosity) UPTO xxxxx output step</p></li>
+<li><code class="code docutils literal"><span class="pre">PLOT_INTV_SEDIMENT</span></code>: time interval for plotting sediment transport variables, defalt is the same as the Boussinesq model</li>
+<li><code class="code docutils literal"><span class="pre">C_xxxxx</span></code>: Sediment concentration (g/l) at xxxxx output step</li>
+<li><code class="code docutils literal"><span class="pre">Pick_xxxxx</span></code>: sediment pickup value at xxxxx output step</li>
+<li><code class="code docutils literal"><span class="pre">Depo_xxxxx</span></code>: sediment deposition value at xxxxx output step</li>
+<li><code class="code docutils literal"><span class="pre">DchgS_xxxxx</span></code>: depth change (without considering porosity ) due to suspended load UPTO xxxxx output step</li>
+<li><code class="code docutils literal"><span class="pre">DchgB_xxxxx</span></code>: depth change (without considering porosity ) due to  bedload UPTO xxxxx output step</li>
+<li><code class="code docutils literal"><span class="pre">BedFx_xxxxx</span></code>: bedload flux in x</li>
+<li><code class="code docutils literal"><span class="pre">BedFy_xxxxx</span></code>: bedload flux in y</li>
+<li><code class="code docutils literal"><span class="pre">dep_xxxxx</span></code>: depth (with considering porosity) UPTO xxxxx output step</li>
 </ul>
 </div>
 
@@ -157,7 +167,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Fengyan Shi.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

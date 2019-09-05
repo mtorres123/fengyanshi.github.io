@@ -1,23 +1,33 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Two vessels with different speeds &#8212; FUNWAVE Documentation</title>
     <link rel="stylesheet" href="_static/lglb-sphinx-doc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Single Vessel in a Circular Basin" href="vessel_circular_basin.html" />
     <link rel="prev" title="Compile the code for shipwake case" href="vessel_compile.html" /> 
-  </head><body>
+  </head>
+  <body>
 <div class="header">
  <p class="logo"><a href="https://fengyanshi.github.io/build/html/index.html">
   <img class="logo" src="_static/../../../images/Funwave.svg" alt="Logo"/>
@@ -43,7 +53,7 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="index.html">Table of Contents</a></h3>
+<h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="basics.html"><strong>BASICS</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="flowchart.html"><strong>ARCHITECTURE</strong></a></li>
@@ -64,13 +74,13 @@
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -83,7 +93,7 @@
             
   <div class="section" id="two-vessels-with-different-speeds">
 <span id="section-vessel-flat"></span><h1>Two vessels with different speeds<a class="headerlink" href="#two-vessels-with-different-speeds" title="Permalink to this headline">¶</a></h1>
-<p>The first example of adding vessel dynamics is for two vessels with different speeds over a flat bottom. The primary “input.txt” and vessel files are located in <code class="code docutils literal notranslate"><span class="pre">simple_cases/vessel_flat_bottom/</span></code>. Refer to <a class="reference internal" href="shipwakes.html#theory-shipwakes"><span class="std std-ref">Ship-wake Module</span></a> for a review of vessel types.</p>
+<p>The first example of adding vessel dynamics is for two vessels with different speeds over a flat bottom. The primary “input.txt” and vessel files are located in <code class="code docutils literal"><span class="pre">simple_cases/vessel_flat_bottom/</span></code>. Refer to <a class="reference internal" href="shipwakes.html#theory-shipwakes"><span class="std std-ref">Ship-wake Module</span></a> for a review of vessel types.</p>
 <p><strong>Model setup</strong></p>
 <div class="align-center figure">
 <a class="reference internal image-reference" href="_images/layout_two_vessels.jpg"><img alt="alternate text" src="_images/layout_two_vessels.jpg" style="width: 500px; height: 200px;" /></a>
@@ -91,36 +101,36 @@
 <p><strong>Setup in input.txt:</strong></p>
 <blockquote>
 <div><p>Set a descriptive title for your simulation:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----TITLE-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----TITLE-----
  TITLE = vessel_flat
 </pre></div>
 </div>
 <p>If running in parallel, set the number of processors in X and Y:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----PARALLEL INFO-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----PARALLEL INFO-----
  PX = 4
  PY = 1
 </pre></div>
 </div>
 <p>Set the bathmetry to a flat bottom of depth 10.0 m:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----DEPTH-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----DEPTH-----
  DEPTH_TYPE = FLAT
  DEPTH_FLAT = 10.0
 </pre></div>
 </div>
 <p>(refer to <a class="reference internal" href="grid.html#definition-grid"><span class="std std-ref">Grid and Computational Time</span></a> for parameter definitions)</p>
 <p>Send the results to a folder named “output”:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----PRINT-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----PRINT-----
  RESULT_FOLDER = output/
 </pre></div>
 </div>
 <p>Set the dimensions of the domain to 500 X 100 (x and y directions, respectively):</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----DIMENSION-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----DIMENSION-----
  Mglob = 500
  Nglob = 100
 </pre></div>
 </div>
 <p>Set the total computation time, plot time, station print interval and screen interval to 50.0 s, 1.0, 50,000.0 s, and 1.0 s, respectively:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----TIME-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----TIME-----
  TOTAL_TIME = 50.0
  PLOT_INTV = 1.0
  PLOT_INTV_STATION = 50000.0
@@ -128,20 +138,20 @@
 </pre></div>
 </div>
 <p>Set the grid spacing in x and y to 1.0 m:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----GRID-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----GRID-----
  DX = 1.0
  DY = 1.0
 </pre></div>
 </div>
 <p>Instead of adding a wavemaker, you will add the number of vessels to include and the path to the vessel files:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----SHIP WAKES-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----SHIP WAKES-----
  VESSEL_FOLDER = ./
  NumVessel = 2
 </pre></div>
 </div>
-<p>You will need two vessel files: <code class="code docutils literal notranslate"><span class="pre">vessel_00001</span></code> and <code class="code docutils literal notranslate"><span class="pre">vessel_00002</span></code> in the working folder. In <code class="code docutils literal notranslate"><span class="pre">vessel_00001</span></code>, specify:</p>
+<p>You will need two vessel files: <code class="code docutils literal"><span class="pre">vessel_00001</span></code> and <code class="code docutils literal"><span class="pre">vessel_00002</span></code> in the working folder. In <code class="code docutils literal"><span class="pre">vessel_00001</span></code>, specify:</p>
 <blockquote>
-<div><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>Title: Vessel # 1
+<div><div class="highlight-rest"><div class="highlight"><pre><span></span>Title: Vessel # 1
 Pressure, 1
 Length(m), Width(m), Alpha1(0.5),Alpha2(0.5), Beta(0.5), P(draft,m)
 10.0  5.0, 0.5, 0.5, 0.5, 2.0
@@ -151,9 +161,9 @@ Time, X(m), Y(m)  (relative to the orgin of the coordinates)
 </pre></div>
 </div>
 </div></blockquote>
-<p>In <code class="code docutils literal notranslate"><span class="pre">vessel_00002</span></code>, specify:</p>
+<p>In <code class="code docutils literal"><span class="pre">vessel_00002</span></code>, specify:</p>
 <blockquote>
-<div><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>Title: Vessel # 2
+<div><div class="highlight-rest"><div class="highlight"><pre><span></span>Title: Vessel # 2
 Pressure, 1
 Length(m), Width(m), Alpha1(0.5),Alpha2(0.5), Beta(0.5), P(draft,m)
 20.0  8.0, 0.5, 0.5, 0.5, 3.0
@@ -164,14 +174,14 @@ Time, X(m), Y(m)  (relative to the orgin of the coordinates)
 </div>
 <p>(refer to <a class="reference internal" href="shipwakes.html#theory-shipwakes"><span class="std std-ref">Ship-wake Module</span></a> and <a class="reference internal" href="shipwakes_para.html#section-shipwakes-setup"><span class="std std-ref">Shipwakes Setup</span></a> for more information)</p>
 </div></blockquote>
-<p>Set the <code class="code docutils literal notranslate"><span class="pre">ETA</span></code> output parameter to true:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----OUTPUT-----
+<p>Set the <code class="code docutils literal"><span class="pre">ETA</span></code> output parameter to true:</p>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----OUTPUT-----
  ETA = T
 </pre></div>
 </div>
 </div></blockquote>
 <p><strong>Postprocessing</strong></p>
-<p>For postprocessing examples, MATLAB and Python scripts are located in <code class="code docutils literal notranslate"><span class="pre">/simple_cases/vessel_flat_bottom/</span></code>. Using <code class="code docutils literal notranslate"><span class="pre">plot_wave_vessel.m</span></code> the model result should look like the figure below.</p>
+<p>For postprocessing examples, MATLAB and Python scripts are located in <code class="code docutils literal"><span class="pre">/simple_cases/vessel_flat_bottom/</span></code>. Using <code class="code docutils literal"><span class="pre">plot_wave_vessel.m</span></code> the model result should look like the figure below.</p>
 <div class="align-center figure">
 <a class="reference internal image-reference" href="_images/two_vessels.jpg"><img alt="alternate text" src="_images/two_vessels.jpg" style="width: 500px; height: 300px;" /></a>
 </div>
@@ -202,7 +212,7 @@ Time, X(m), Y(m)  (relative to the orgin of the coordinates)
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Fengyan Shi.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -1,23 +1,33 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Basics for model setup &#8212; FUNWAVE Documentation</title>
     <link rel="stylesheet" href="_static/lglb-sphinx-doc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Irregular wave normal incidence" href="rip_2d_irregular_wave.html" />
     <link rel="prev" title="Compile the code for 2D beach case" href="rip_2d_compile.html" /> 
-  </head><body>
+  </head>
+  <body>
 <div class="header">
  <p class="logo"><a href="https://fengyanshi.github.io/build/html/index.html">
   <img class="logo" src="_static/../../../images/Funwave.svg" alt="Logo"/>
@@ -43,7 +53,7 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="index.html">Table of Contents</a></h3>
+<h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="basics.html"><strong>BASICS</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="flowchart.html"><strong>ARCHITECTURE</strong></a></li>
@@ -64,13 +74,13 @@
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -83,40 +93,40 @@
             
   <div class="section" id="basics-for-model-setup">
 <span id="section-rip-basics"></span><h1>Basics for model setup<a class="headerlink" href="#basics-for-model-setup" title="Permalink to this headline">¶</a></h1>
-<p>In this example, you will use a separate file to define the bathymetry of the computational domain that matches the figure below. In the directory <code class="code docutils literal notranslate"><span class="pre">/simple_cases/rip_2d/bathy/</span></code> is a file named “depth_a15.txt” that will be called in “input.txt”.</p>
+<p>In this example, you will use a separate file to define the bathymetry of the computational domain that matches the figure below. In the directory <code class="code docutils literal"><span class="pre">/simple_cases/rip_2d/bathy/</span></code> is a file named “depth_a15.txt” that will be called in “input.txt”.</p>
 <p><strong>Computational domain</strong></p>
 <div class="align-center figure">
 <a class="reference internal image-reference" href="_images/rip_bathy.jpg"><img alt="alternate text" src="_images/rip_bathy.jpg" style="width: 300px; height: 350px;" /></a>
 </div>
 <p><strong>Setup in “input.txt”</strong></p>
-<p>You will find the complete “input.txt” file in the directory <code class="code docutils literal notranslate"><span class="pre">/simple_cases/rip_2d/work/</span></code> for this example. On this page, we will focus on setting up the model domain. Wavemaker and physics parameters will be defined on the <a class="reference internal" href="rip_2d_irregular_wave.html#section-rip-irregular"><span class="std std-ref">Irregular wave normal incidence</span></a> page. <strong>Remember that all parameters are case sensitive</strong>.</p>
+<p>You will find the complete “input.txt” file in the directory <code class="code docutils literal"><span class="pre">/simple_cases/rip_2d/work/</span></code> for this example. On this page, we will focus on setting up the model domain. Wavemaker and physics parameters will be defined on the <a class="reference internal" href="rip_2d_irregular_wave.html#section-rip-irregular"><span class="std std-ref">Irregular wave normal incidence</span></a> page. <strong>Remember that all parameters are case sensitive</strong>.</p>
 <blockquote>
 <div><p>If running in parallel, set the number of processors in X and Y:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----PARALLEL INFO-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----PARALLEL INFO-----
  PX = 4
  PY = 4
 </pre></div>
 </div>
 <p>Set the bathymetry to the depth file:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----DEPTH-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----DEPTH-----
  DEPTH_TYPE = DATA
  DEPTH_FILE = ../bathy/depth_a15.txt
 </pre></div>
 </div>
 <p>(refer to <a class="reference internal" href="grid.html#definition-grid"><span class="std std-ref">Grid and Computational Time</span></a> for parameter descriptions)</p>
 <p>Send the results to a folder named “output”:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----PRINT-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----PRINT-----
  RESULT_FOLDER = output/
 </pre></div>
 </div>
 <p>Set the dimensions of the domain to 512 x 250 in x and y directions, respectively:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----DIMENSION-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----DIMENSION-----
  Mglob = 512
  Nglob = 250
 </pre></div>
 </div>
 <p>Set the total computational time, plot time, and screen intervals to  1000.0 s, 100.0 s, and 100.0 s, respectively. If printing results to a station file, use 0.5 s:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----TIME-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----TIME-----
  TOTAL_TIME = 1000.0
  PLOT_INTV = 100.0
  SCREEN_INTV = 100.0
@@ -124,14 +134,14 @@
 </pre></div>
 </div>
 <p>Set the grid spacing in x and y to 1.0 m and 2.0 m, respectively:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>!-----GRID-----
+<div class="highlight-rest"><div class="highlight"><pre><span></span>!-----GRID-----
  DX = 1.0 m
  DY = 2.0 m
 </pre></div>
 </div>
 </div></blockquote>
 <p><strong>Postprocessing</strong></p>
-<p>For postprocessing examples, MATLAB scripts are located in <code class="code docutils literal notranslate"><span class="pre">/simple_cases/rip_2d/postprocessing/</span></code>.</p>
+<p>For postprocessing examples, MATLAB scripts are located in <code class="code docutils literal"><span class="pre">/simple_cases/rip_2d/postprocessing/</span></code>.</p>
 </div>
 
 
@@ -159,7 +169,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Fengyan Shi.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

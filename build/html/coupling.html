@@ -1,23 +1,33 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Coupling (Manually) &#8212; FUNWAVE Documentation</title>
     <link rel="stylesheet" href="_static/lglb-sphinx-doc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Multi-Grid Nesting (Automatically)" href="nesting.html" />
     <link rel="prev" title="NESTING AND COUPLING" href="coupling_nesting.html" /> 
-  </head><body>
+  </head>
+  <body>
 <div class="header">
  <p class="logo"><a href="https://fengyanshi.github.io/build/html/index.html">
   <img class="logo" src="_static/../../../images/Funwave.svg" alt="Logo"/>
@@ -42,7 +52,7 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="index.html">Table of Contents</a></h3>
+<h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="basics.html"><strong>BASICS</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="flowchart.html"><strong>ARCHITECTURE</strong></a></li>
@@ -62,13 +72,13 @@
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
+  <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -83,12 +93,12 @@
 <span id="definition-coupling"></span><h1>Coupling (Manually)<a class="headerlink" href="#coupling-manually" title="Permalink to this headline">¶</a></h1>
 <p>The present version has a capability for one-way coupling with other models such as NHWAVE or FUNWAVE-TVD itself. The nesting scheme passes surface elevation and velocity components calculated from other models or FUNWAVE-TVD in a large domain to a nested small domain through ghost cells at nesting boundaries. To run a nested model, the following procedures should be performed.</p>
 <ol class="arabic simple">
-<li><p>The coupling option in Makefile should be defined as ‘-Dcoupling’. The program should be re–compiled.</p></li>
-<li><p>Prepare nesting data using the output of a large-domain model. The following is an example of the data format:</p></li>
+<li>The coupling option in Makefile should be defined as ‘-Dcoupling’. The program should be re–compiled.</li>
+<li>Prepare nesting data using the output of a large-domain model. The following is an example of the data format:</li>
 </ol>
 <blockquote>
 <div><blockquote>
-<div><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>! coupling data
+<div><div class="highlight-rest"><div class="highlight"><pre><span></span>! coupling data
 
 !  boundary info: num of points (negative means no point), start point
 
@@ -132,9 +142,9 @@ NORTH SIDE              ! (no nesting on north side)
 </pre></div>
 </div>
 </div></blockquote>
-<p>The example above is a case that a model nesting  takes place at the WEST (left) boundary of a small domain. Boundaries are defined with the order: <code class="code docutils literal notranslate"><span class="pre">EAST,</span> <span class="pre">WEST,</span> <span class="pre">SOUTH</span></code>, and <code class="code docutils literal notranslate"><span class="pre">NORTH</span></code>. If the num of points of a boundary is larger than zero, the program will read a time series of (<span class="math notranslate nohighlight">\(u, v, \eta\)</span>) below ‘XXXX SIDE’. The read format is:</p>
+<p>The example above is a case that a model nesting  takes place at the WEST (left) boundary of a small domain. Boundaries are defined with the order: <code class="code docutils literal"><span class="pre">EAST,</span> <span class="pre">WEST,</span> <span class="pre">SOUTH</span></code>, and <code class="code docutils literal"><span class="pre">NORTH</span></code>. If the num of points of a boundary is larger than zero, the program will read a time series of (<span class="math">\(u, v, \eta\)</span>) below ‘XXXX SIDE’. The read format is:</p>
 <blockquote>
-<div><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>READ(11,*)         ! TIME_COUPLING_2
+<div><div class="highlight-rest"><div class="highlight"><pre><span></span>READ(11,*)         ! TIME_COUPLING_2
 
 READ(11,119)       ! (U_COUPLING_EAST(I,2), I=1, N_COUPLING_EAST)
 
@@ -148,11 +158,11 @@ ENDDO
 </pre></div>
 </div>
 </div></blockquote>
-<p>where <code class="code docutils literal notranslate"><span class="pre">N_COUPLING_EAST</span></code> is the number of points at the <code class="code docutils literal notranslate"><span class="pre">EAST</span></code> boundary.</p>
+<p>where <code class="code docutils literal"><span class="pre">N_COUPLING_EAST</span></code> is the number of points at the <code class="code docutils literal"><span class="pre">EAST</span></code> boundary.</p>
 </div></blockquote>
 <ol class="arabic" start="3">
-<li><p>Specify the file of coupling data in “input.txt”:</p>
-<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>! ----------------- COUPLING -------------------------
+<li><p class="first">Specify the file of coupling data in “input.txt”:</p>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>! ----------------- COUPLING -------------------------
 
 ! if do coupling, have to set -DCOUPLING in Makefile
 
@@ -162,8 +172,7 @@ COUPLING_FILE = coupling.txt
 </li>
 </ol>
 <blockquote>
-<div><p>where “coupling.txt” is the file saved in procedure 2.</p>
-</div></blockquote>
+<div>where “coupling.txt” is the file saved in procedure 2.</div></blockquote>
 </div>
 
 
@@ -190,7 +199,7 @@ COUPLING_FILE = coupling.txt
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Fengyan Shi.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>
