@@ -7,7 +7,7 @@ Compile the code for shipwake + sediment case
 
 See an example of a complete "Makefile" :ref:`here <subsection-compile>`.
 
-For this example, you will need to update the :code:`EXEC` variable, and make sure the appriopriate :code:`FLAGS` are active in the "Makefile". You will add the :code:`-DVESSEL` and :code:`-DSEDIMENT` flags:
+For this example, you will need to update the :code:`EXEC` variable, and make sure the appropriate :code:`FLAGS` are active in the "Makefile". You will add the :code:`-DVESSEL` and :code:`-DSEDIMENT` flags:
 
 
 .. code-block:: rest
