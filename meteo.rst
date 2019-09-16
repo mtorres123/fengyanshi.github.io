@@ -1,6 +1,8 @@
+.. _section-meteo:
 
 Meteotsunami
-########################
+############
+
 .. figure:: images/simple_cases/meteo_layout.jpg
     :width: 500px
     :align: center
