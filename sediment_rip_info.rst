@@ -156,4 +156,4 @@ For this example, you will set the following in "input.txt". **Remember that all
 
 **Postprocessing**
 
- For a postprocessing example, a MATLAB script is located in :code:`/simple_cases/sediment_rip/postprocessing/`.
+ For postprocessing examples, MATLAB and Python scripts are located in :code:`/simple_cases/sediment_rip/postprocessing/`.
