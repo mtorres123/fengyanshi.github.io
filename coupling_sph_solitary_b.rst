@@ -1,5 +1,7 @@
+.. _section-coupling-gridb:
+
 GRID B (solitary wave case)
-########################################
+###########################
 
 .. figure:: images/simple_cases/solitary_nesting.jpg
     :width: 400px
@@ -8,55 +10,53 @@ GRID B (solitary wave case)
     :alt: alternate text
     :figclass: align-center
 
-.. NOTE:: RUN funwave_coupling
+.. NOTE:: Step 3: Run funwave_coupling
 
-**input.txt:**
+**Setup in "input.txt"**
 
-|  **Parallel(if applicable)**
-|   PX = 2
-|   PY = 2
+Use the GRID A "input.txt" (:ref:`section-coupling-grida`) as the foundation of the "input.txt" file for GRID B. Make the following changes / updates to the GRID B "input.txt":
 
-|  **Depth**  
-|   DEPTH_TYPE = FLAT 
-|   DEPTH_FILE = ../bathy/depth_a15.txt 
+ Send the results to a folder named "output_2":
 
-  (refer to :ref:`definition_grid`)
+ .. code-block:: rest
 
-|  **Output folder** 
-|   RESULT_FOLDER = output_1/ 
+        !-----PRINT-----
+         RESULT_FOLDER = output_2/
+
  
-|  **Dimensions**
-|   Mglob = 2000
-|   Nglob = 3
+ Update the dimensions of the domain to 2000 x 3 (x and y directions, respectively):
 
-|  **Time**
-|   TOTAL_TIME = 400.0 
-|   PLOT_INTV = 1.0 
-|   PLOT_INTV_STATION = 0.0 
-|   SCREEN_INTV = 1.0 
+ .. code-block:: rest
+        
+        !-----DIMENSION-----
+        
+         Mglob = 2000   ! x-dir
+         Nglob = 3      ! y-dir
+ 
+ Update the grid spacing in spherical coordinates:
 
-|  **Grid**
-|   Lon_West = 120.0
-|   Lat_South = 0.0
-|   Dphi = 0.000017986
-|   Dtheta = 0.00005 
+ .. code-block:: rest
 
-|  **Wavemaker** 
-|  WAVEMAKER = nothing
+        !-----GRID-----
+         Lon_West = 120.0
+         Lat_South = 0.0
+         Dphi = 0.000017986
+         Dtheta = 0.00005
 
-|  **Physics** 
-|   Cd = 0.0
+ Remove the wavemaker:
 
-|  **COUPLING**
-|  COUPLING_FILE = coupling_same.txt
+ .. code-block:: rest
 
-|  **COUPLING FILE** 
-|  COUPLING_FILE = ../make_nest_file/coupling.txt
+        !-----WAVEMAKER-----
+         WAVEMAKER = nothing
 
-|  **Output** 
-|   DEPTH_OUT = T 
-|   ETA = T 
-|   U = T
-|   V = T
+ Add the coupling file you made in Step 2:
 
-  (refer to :ref:`definition_output`)
+ .. code-block:: rest
+
+        !-----COUPLING-----
+         COUPLING_FILE = ../make_nest_file/coupling.txt         # set relative path to coupling.txt
+
+**Postprocessing**
+
+An example postprocessing MATLAB script is located in :code:`/benchmarks/sph_nesting/postprocessing`.
