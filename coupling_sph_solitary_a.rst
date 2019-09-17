@@ -22,7 +22,7 @@ For this example, you will set the following in "input.txt". **Remember that all
 
         !-----PARALLEL INFO-----
          PX = 2
-         PY = 1 
+         PY = 2 
 
  Set the bathymetry to match the figure above:
 
