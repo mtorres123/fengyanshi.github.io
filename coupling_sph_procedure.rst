@@ -1,8 +1,12 @@
+.. _section-coupling-procedure:
+
 Coupling procedure
-**********************************
+******************
 
-The case has two grids in the spherical system, the coarse grid (GRID A) and fine grid (GRID B). GRID B is nested in GRID A at i = 500 (point). A solitary wave is specified in GRID A as the initial condition. 
+In this coupling case, there are two grids in the spherical system: (1) the coarse grid (low resolution, GRID A) and (2) the fine grid (higher resolution, GRID B). GRID B is nested in GRID A at i = 500 (point). A solitary wave is specified in GRID A as the initial condition.
 
-* Run GRID A using funwave_nocoupling compiled without -DCOUPLING. Specify a sation file 'station.txt' for output at the coupling boundaries. 
-* Make a coupling file 'coupling.txt' using the output from GRID A
-* Run GRID B using funwave_coupling compiled with -DCOUPLING. Specify the coupling file 'coupling.txt' in input.txt
+To complete this example, follow the steps below:
+
+1. Run GRID A using :code:`funwave_nocoupling` compiled *without* :code:`-DCOUPLING` (see :ref:`section-coupling-compile`). Specify a station file "station.txt" for output at the coupling boundaries. Follow :ref:`section-coupling-grida`. 
+2. Make a coupling file "coupling.txt" using the output from GRID A (see :ref:`section-coupling-file`).
+3. Run GRID B using :code:`funwave_coupling` compiled *with* :code:`-DCOUPLING` (see :ref:`section-coupling-compile`). Specify the coupling file "coupling.txt" in "input.txt". Follow :ref:`section-coupling-gridb`.
